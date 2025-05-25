@@ -9,10 +9,11 @@ class Solution:
         hashmap = {}
         for i, n in enumerate(nums):
             diff = target - n
-            if diff in hashmap:
+            if diff in hashmap.keys():
                 return [hashmap[diff], i]
-            hashmap[n] = i
-        return []  # Return an empty list if no solution is found
+            else:
+                hashmap[n] = i
+
 
 # Create an instance of Solution
 solution = Solution()

@@ -4,16 +4,16 @@
 
 class Solution:
     def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
-        anagram = {} #this stores the values as dict
+        hashmap  = {}
         for i in strs:
-            sort = ''.join(sorted(i)) #sort the word
-            if sort in anagram.keys(): # if the key is present  
-                anagram[sort].append(i) # put the unsorted element to that key
-            else: #if not
-                anagram.update({sort:[]}) #insert the key
-                anagram[sort].append(i) # put the unsorted element to the key
-        return anagram.values() # return just the values
-    
+            nstrs = "".join(sorted(i))
+            if nstrs in hashmap.keys():
+                hashmap[nstrs].append(i)
+            else:
+                hashmap.update({nstrs: []})
+                hashmap[nstrs].append(i)
+        return hashmap.values()
+
 solution = Solution()
 print(solution.groupAnagrams(["act","pots","tops","cat","stop","hat"]))
 
@@ -22,3 +22,4 @@ print(solution.groupAnagrams(["act","pots","tops","cat","stop","hat"]))
         #sort that element -> string.sort()
         #compare the elements 
         #put the same elements in the common lists
+    
